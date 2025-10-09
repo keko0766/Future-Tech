@@ -1,0 +1,110 @@
+@use '../helpers' as *;
+
+.header{
+  position: sticky;
+  top: 0;
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: rem(100) rem(200);
+
+  @keyframes scrolling-header {
+    to {
+      box-shadow: 0 0 2rem 0 var(--color-dark);
+      // translate: 0 calc(rem(40) + #{fluid-text(18, 14)});
+    }
+  }
+
+  &__promo {
+    padding-block: rem(20);
+    text-align: center;
+    border-bottom: var(--border);
+    background-color: var(--color-dark);
+    
+    @include mobile{
+      padding-block: rem(14);
+    }
+  }
+  &__body {
+
+    padding-block: rem(24);
+    background-color: var(--color-dark-10);
+    &-inner{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include mobile{
+      padding-block: rem(20);
+    }
+  }
+
+  &__overlay{
+    @include mobile-above{
+      display: contents;
+    }
+    @include mobile {
+      position: fixed;
+      inset: 0;
+      padding: 1rem;
+      background-color: var(--color-dark-10);
+      transition-duration: var(--transition-duration);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 3rem;
+
+      &:not(.is-active) {
+        @include hide;
+        // @include visually-hidden;
+
+        translate: 100%;
+      }
+    }
+  }
+
+  &__menu{
+    @include mobile{
+      overflow-y: auto;
+    }
+    &-list{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      column-gap: rem(16);
+      @include laptop{
+        column-gap: rem(6);
+      }
+      @include mobile{
+        flex-direction: column;
+        row-gap: 1rem;
+      }
+    }
+    &-link{
+      @include flex-center;
+      border-radius: rem(10);
+      padding: rem(14) rem(24);
+      &.is-active{
+        font-weight: 500;
+        border: var(--border);
+        background-color: var(--color-dark);
+        color: var(--color-white);
+        pointer-events: none;
+      }
+      @include mobile{
+        width: 300px;
+      }
+    }
+
+  }
+
+  &__contact-us-link{
+    @include mobile{
+      @include flex-center;
+      width: 300px;
+    }
+  }
+}

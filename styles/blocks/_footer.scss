@@ -1,0 +1,13 @@
+@use '../helpers' as *;
+
+.footer{
+  &__body{
+    padding-block: rem(80);
+  }
+
+  :__menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
