@@ -1,0 +1,21 @@
+@use '../helpers' as *;
+
+.resources-preview{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: flex-end;
+  row-gap: fluid(30, 20, $mobile);
+
+  &__button{
+    @include mobile{
+      @include flex-center;
+
+      align-self: center;
+      width: 100%;
+    }
+  }
+  &__title{
+    color: var(--color-white);
+  }
+}

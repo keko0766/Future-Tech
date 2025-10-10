@@ -2,12 +2,80 @@
 
 .footer{
   &__body{
-    padding-block: rem(80);
+    padding-block: fluid(80, 40);
+    border-bottom: var(--border);
   }
 
-  :__menu{
+  &__menu{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+    column-gap: fluid(80, 20);
+
+    @include mobile{
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: rem(20);
+    }
+    &-column{
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(36, 16);
+      &:last-child{
+        @include mobile{
+          grid-column-end: -1;
+          grid-column-start: 1;
+          .footer__menu-list{
+            flex-direction: row;
+            gap: rem(12);
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
+    &-header{
+      color: var(--color-white)
+    }
+    &-link{
+      @include fluid-text(18, 14, $mobile);
+    }
+    &-list{
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(18, 8);
+    }
+    &-item{
+      white-space: nowrap;
+    }
+  }
+
+  &__extra{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    padding-block: fluid(40, 24, $mobile);
+
+    @include mobile{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: rem(20);
+    }
+
+    &-list{
+      display: flex;
+    }
+    &-item{
+      margin-right: fluid(11, 8, $mobile);
+      &:last-child{
+        border-left: var(--border);
+        padding-left: fluid(11, 8, $mobile);
+      }
+    }
+    &-link{
+      @include fluid-text(18, 14, $mobile);
+    }
+  }
+
+  &__copyright{
+    @include fluid-text(18, 14, $mobile);
   }
 }

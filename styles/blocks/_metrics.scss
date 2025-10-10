@@ -1,0 +1,29 @@
+@use '../helpers' as *;
+
+.metrics{
+  &__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &__item{
+    display: flex;
+    align-items: start;
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: fluid(50, 20);
+    &:first-child{
+      padding-left: 0;
+    }
+    &:not(:last-child){
+      border-right: var(--border);
+    }
+  }
+  &__value{
+    font-weight: 600;
+    color: var(--color-white);
+    &::after{
+      content: '+';
+      color: var(--color-accent);
+    }
+  }
+}

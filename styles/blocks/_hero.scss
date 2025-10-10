@@ -1,0 +1,57 @@
+@use '../helpers' as *;
+
+
+.hero{
+  &__main{
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-areas: 
+      "body resources-preview"
+      "metrics resources-preview";
+
+    @include mobile{
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+        "body"
+        "metrics" 
+        "resources-preview";
+    }
+  }
+  &__body{
+    grid-area: body;
+    padding-top: fluid(150, 100, $mobile);
+    padding-bottom: rem(100);
+    padding-right: fluid(50, 30, $mobile);
+    border-bottom: var(--border);
+  }
+  &__subtitle{
+    @include fluid-text(30, 18);
+
+    font-family: var(--font-family-accent);
+    &:not(:last-child){
+      margin-bottom: fluid(30, 14);
+    }
+  }
+  &__title{
+    color: var(--color-white);
+    &:not(:last-child){
+      margin-bottom: fluid(20, 10);
+    }
+  }
+
+  &__resources-preview{
+    grid-area: resources-preview;
+    border-left: var(--border);
+    padding-left: fluid(80,50,$mobile);
+    padding-bottom: fluid(80,50,$mobile);
+    background: url('../../images/resources-preview/bg.png') 0 0 / cover no-repeat;
+
+    @include mobile{
+      padding: rem(40);
+      padding-top: rem(100);
+    }
+  }
+  &__metrics{
+    grid-area: metrics;
+  }
+}

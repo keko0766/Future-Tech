@@ -1,0 +1,22 @@
+@use '../helpers' as *;
+
+.team{
+  display: flex;
+  flex-direction: row;
+  background: var(--color-dark-10);
+  border-radius: rem(50);
+  border: var(--border);
+  padding: fluid(10, 8, $mobile);
+
+  &__person{
+    background: var(--color-dark-15);
+    border-radius: 50%;
+    border: var(--border);
+    border-color: var(--color-dark-40);
+    height: fluid(60, 40);
+    width: fluid(60, 40);
+    &:not(:first-child){
+      margin-left: rem(-14);
+    }
+  }
+}

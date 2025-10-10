@@ -26,4 +26,10 @@
     background-color: var(--color-dark-10);
     border-color: var(--color-accent);
   }
+  &-s{
+    padding: rem(10) rem(16);
+    @include laptop{
+      padding: rem(8) rem(14);
+    }
+  }
 }

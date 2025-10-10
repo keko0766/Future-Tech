@@ -1,0 +1,11 @@
+@use '../helpers' as *;
+
+.soc1als{
+  &__menu{
+    display: flex;
+    column-gap: fluid(20, 14, $mobile);
+  }
+  &__link{
+    color: var(--color-white)
+  }
+}
