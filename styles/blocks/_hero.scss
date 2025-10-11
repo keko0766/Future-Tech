@@ -41,7 +41,6 @@
 
   &__resources-preview{
     grid-area: resources-preview;
-    border-left: var(--border);
     padding-left: fluid(80,50,$mobile);
     padding-bottom: fluid(80,50,$mobile);
     background: url('../../images/resources-preview/bg.png') 0 0 / cover no-repeat;
@@ -53,5 +52,28 @@
   }
   &__metrics{
     grid-area: metrics;
+  }
+
+  &__advantages{
+    border-top: var(--border);
+
+    &-list{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include mobile{
+        grid-template-columns: 1fr;
+      }
+    }
+    &-item{
+      @include mobile{
+          border-bottom: var(--border);
+      }
+      &:not(:first-child){
+        border-left: var(--border);
+        @include mobile{
+          border-left: none;
+        }
+      }
+    }
   }
 }

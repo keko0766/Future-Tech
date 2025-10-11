@@ -1,0 +1,40 @@
+@use '../helpers' as *;
+
+.advantage-card{
+  padding-block: fluid(50, 30);
+  padding-inline: fluid(80, 20, $tablet);
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid(30, 10);
+
+  &__image{
+    height: fluid(50, 30);
+    width: fluid(50, 30);
+  }
+  &__link{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    white-space: nowrap;
+    width: 100%;
+    &::after{
+      content: '';
+      background: 
+        url('/icons/arrow-top-right_black.svg')
+        var(--color-accent);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+      width: fluid(50, 40);
+      height: fluid(50, 40);
+      border-radius: 50%;
+
+      grid-column: 2;
+      grid-row: 1 / 3;
+
+      margin-left: auto;
+    }
+  }
+  &__title{
+    color: var(--color-white)
+  }
+}
