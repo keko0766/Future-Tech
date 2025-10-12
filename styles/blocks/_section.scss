@@ -1,0 +1,11 @@
+@use '../helpers' as *;
+
+.section{
+  &__header{
+    background-color: var(--color-dark-10);
+    border-block: var(--border);
+    &-inner{
+      padding-block: fluid(120, 40);
+    }
+  }
+}

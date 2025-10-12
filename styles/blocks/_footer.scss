@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     align-items: start;
-    column-gap: fluid(80, 20);
+    column-gap: fluid(80, 20, $mobile);
 
     @include mobile{
       grid-template-columns: repeat(2, 1fr);

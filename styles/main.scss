@@ -17,8 +17,19 @@
 @use 'blocks/resources-preview';
 @use 'blocks/advantage-card';
 @use 'blocks/hero';
+@use 'blocks/section';
+@use 'blocks/card';
+@use 'blocks/list';
+@use 'blocks/tile';
 
 .header,
 .footer{
   // display: none !important;
+}
+
+
+.features{
+  &__header{
+    background-color: #fff;
+  }
 }

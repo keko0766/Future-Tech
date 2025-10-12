@@ -1,0 +1,33 @@
+@use '../helpers' as *;
+
+.card{
+  display: flex;
+  align-items: center;
+  &__preview{
+    padding-right: fluid(80, 60, $mobile);
+    &-main{
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(50, 30);
+    }
+  }
+
+  &__body{
+    border-left: var(--border);
+    padding: fluid(80, 60, $mobile);
+    padding-right: 0;
+  }
+  &__grid{
+    display: grid;
+    row-gap: fluid(30,10);
+    column-gap: fluid(30,10);
+    &--2-cols{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__cell{
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(20, 4);
+  }
+}
