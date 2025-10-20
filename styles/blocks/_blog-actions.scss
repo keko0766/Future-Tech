@@ -1,0 +1,32 @@
+@use '../helpers' as *;
+
+.blog-actions{
+  &__list{
+    display: flex;
+    column-gap: fluid(10,8);
+  }
+
+  &__button{
+    border: var(--border);
+    background-color: var(--color-dark-10);
+    padding: fluid(8, 6) fluid( 16, 12);
+    border-radius: 50px;
+    color: var(--color-gray-60);
+    display: flex;
+    align-items: center;
+    column-gap: fluid(4,2);
+    &.is-active{
+      .blog-actions__icon-wrapper > svg{
+        fill: var(--color-red);
+        path{
+          stroke: none;
+        }
+      }
+    }
+  }
+
+  &__icon-wrapper{
+    width: fluid(24,20,$tablet);
+    height: fluid(24,20,$tablet);
+  }
+}

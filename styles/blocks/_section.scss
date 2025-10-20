@@ -6,6 +6,15 @@
     border-block: var(--border);
     &-inner{
       padding-block: fluid(120, 40);
+      &:has(.section__link){
+        display: grid;
+        align-items: center;
+        column-gap: 1rem;
+        row-gap: rem(30);
+        @include mobile-above{
+          grid-template-columns: 1fr auto;
+        }
+      }
     }
   }
 }

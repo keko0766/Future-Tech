@@ -1,0 +1,18 @@
+@use '../helpers' as *;
+
+.person-card{
+  display: flex;
+  align-items: center;
+  column-gap: fluid(16, 8);
+
+  &__image{
+    border-radius: 50%;
+    width: fluid(80, 60, $tablet);
+    height: fluid(80, 60, $tablet);
+  }
+  &__name{
+    font-size: fluid(20, 18, $tablet);
+    font-weight: 600;
+    color: var(--color-white);
+  }
+}
