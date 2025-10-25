@@ -1,6 +1,7 @@
 @use '../helpers' as *;
 
 .blog-actions{
+  z-index: -1;
   &__list{
     display: flex;
     column-gap: fluid(10,8);

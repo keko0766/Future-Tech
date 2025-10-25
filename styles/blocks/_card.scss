@@ -7,21 +7,32 @@
     flex-direction: column;
   }
   &__preview{
-    padding-right: fluid(80, 60, $mobile);
+    padding-right: fluid(80, 40, $mobile);
+    row-gap: fluid(60, 20);
+    display: flex;
+    flex-direction: column;
     @include mobile{
       padding: rem(50) 0;
       border-bottom: var(--border);
     }
+    &-link{
+      justify-content: center;
+    }
+    &-info{
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(16, 8);
+    }
     &-main{
       display: flex;
       flex-direction: column;
-      row-gap: fluid(50, 30);
+      row-gap: fluid(50, 20);
     }
   }
 
   &__body{
     border-left: var(--border);
-    padding: fluid(80, 60, $mobile);
+    padding: fluid(80, 40, $mobile);
     padding-right: 0;
     @include mobile{
       padding: rem(30) rem(16);
@@ -34,6 +45,10 @@
     column-gap: fluid(30,10);
     &--2-cols{
       grid-template-columns: repeat(2, 1fr);
+      &-alt{
+        grid-template-columns: 1fr 3fr;
+        align-items: center;
+      }
       @include mobile{
         grid-template-columns: 1fr;
       }
@@ -42,6 +57,26 @@
   &__cell{
     display: flex;
     flex-direction: column;
-    row-gap: fluid(20, 4);
+    row-gap: fluid(16, 4);
+    &--wide{
+      grid-column: 1 / 3;
+    }
+    &-image{
+      border-radius: rem(12);
+    }
+    &-subtitle{
+      white-space: nowrap;
+    }
+    &:has(.card__cell-link){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .card__cell-link{
+        grid-column: 2/3;
+        grid-row: 1/3;
+        justify-self: end;
+        align-self: center;
+      }
+    }
   }
+
 }

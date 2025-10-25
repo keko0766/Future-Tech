@@ -1,0 +1,14 @@
+@use '../helpers' as *;
+
+.download-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: fluid(50, 30, $tablet);
+  &__body{
+    white-space: nowrap;
+  }
+  &__team{
+    background-color: var(--color-dark);
+  }
+}
