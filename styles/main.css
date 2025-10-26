@@ -974,7 +974,7 @@ button[aria-label]::before {
 }
 .card__body {
   border-left: var(--border);
-  padding: clamp(2.5rem, -0.5377994367rem + 6.328913642vw, 5rem);
+  padding: clamp(2.5rem, -4.3080155311rem + 10.6377320355vw, 5rem);
   padding-right: 0;
 }
 @media (width <= 47.99875rem) {
@@ -992,7 +992,6 @@ button[aria-label]::before {
   grid-template-columns: repeat(2, 1fr);
 }
 .card__grid--2-cols-alt {
-  grid-template-columns: 1fr 3fr;
   align-items: center;
 }
 @media (width <= 47.99875rem) {
@@ -1013,16 +1012,28 @@ button[aria-label]::before {
 }
 .card__cell-subtitle {
   white-space: nowrap;
+  font: inherit;
+}
+.card__cell:has(> *:only-child) {
+  justify-content: center;
+}
+@media (width > 47.99875rem) {
+  .card__cell:not(:has(> *:only-child)) {
+    grid-column: 1/3;
+  }
+}
+@media (width <= 30.06125rem) {
+  .card__cell:not(:has(> *:only-child)) {
+    grid-column: 1/3;
+  }
 }
 .card__cell:has(.card__cell-link) {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "other link" "other link";
 }
-.card__cell:has(.card__cell-link) .card__cell-link {
-  grid-column: 2/3;
-  grid-row: 1/3;
-  justify-self: end;
-  align-self: center;
+.card__cell-link {
+  grid-area: link;
 }
 
 .list__item:not(:last-child) {
@@ -1033,7 +1044,7 @@ button[aria-label]::before {
   background-color: var(--color-dark-10);
   border: var(--border);
   border-radius: 0.625rem;
-  padding: clamp(0.625rem, -0.0240384615rem + 2.8846153846vw, 2.5rem);
+  padding: clamp(0.625rem, -1.6533495775rem + 4.7466852315vw, 2.5rem);
 }
 
 .tabs__header {

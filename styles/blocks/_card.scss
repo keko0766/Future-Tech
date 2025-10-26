@@ -32,7 +32,7 @@
 
   &__body{
     border-left: var(--border);
-    padding: fluid(80, 40, $mobile);
+    padding: fluid(80, 40, $tablet);
     padding-right: 0;
     @include mobile{
       padding: rem(30) rem(16);
@@ -46,7 +46,7 @@
     &--2-cols{
       grid-template-columns: repeat(2, 1fr);
       &-alt{
-        grid-template-columns: 1fr 3fr;
+        //grid-template-columns: 1fr auto;
         align-items: center;
       }
       @include mobile{
@@ -66,16 +66,29 @@
     }
     &-subtitle{
       white-space: nowrap;
+      font: inherit;
+    }
+    &:has(> *:only-child){
+      justify-content: center;
+    }
+
+    &:not(:has(> *:only-child)){
+      @include mobile-above{
+        grid-column: 1 / 3;
+      }
+      @include mobile-s{
+        grid-column: 1 / 3;
+      }
     }
     &:has(.card__cell-link){
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      .card__cell-link{
-        grid-column: 2/3;
-        grid-row: 1/3;
-        justify-self: end;
-        align-self: center;
-      }
+      grid-template-columns: 1fr auto;
+      grid-template-areas: 
+        'other link'
+        'other link';
+    }
+    &-link{
+      grid-area: link;
     }
   }
 
